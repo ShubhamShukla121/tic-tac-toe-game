@@ -30,8 +30,13 @@ boxes.forEach((box) => {
             turnO = true;
         }
         box.disabled = true;
+        count++;
+
    
-       checkWinner();
+       let isWinner=checkWinner();
+       if(count===9&&!isWinner){
+        noWinner();
+       }
        
        
       
@@ -58,6 +63,7 @@ const enableBoxes = () => {
 }
 const noWinner = () => {
 
+    msg.innerText="game was a Draw!"
 
     msgContainer.classList.remove("hide");
     disableBoxes();
